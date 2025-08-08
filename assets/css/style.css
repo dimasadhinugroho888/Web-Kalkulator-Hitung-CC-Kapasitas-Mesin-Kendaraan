@@ -47,7 +47,7 @@ body.light-mode {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
   backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--border-dark);
-  transition: border-color 0.4s ease;
+  transition: border-color 0.4s ease, color 0.4s ease;
   color: var(--text-dark);
 }
 
@@ -56,6 +56,12 @@ body.light-mode .navbar {
   color: var(--text-light);
 }
 
+/* Navbar brand text in light mode */
+body.light-mode .navbar-brand .brand-text {
+  color: #222 !important; /* lebih gelap dan jelas */
+}
+
+/* Card Glass */
 .card.glass {
   background: var(--glass-bg-dark);
   border: 1px solid var(--border-dark);
@@ -143,6 +149,13 @@ body.light-mode input.form-control {
 
 body.light-mode input.form-control::placeholder {
   color: rgba(0, 0, 0, 0.4);
+}
+
+/* Text Descriptions and Labels: lebih jelas di dark mode */
+body:not(.light-mode) p.text-muted,
+body:not(.light-mode) .form-label,
+body:not(.light-mode) .small {
+  color: #ddd !important;
 }
 
 /* Small texts */
