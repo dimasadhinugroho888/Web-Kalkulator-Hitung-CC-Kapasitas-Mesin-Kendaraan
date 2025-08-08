@@ -1,225 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
+/* Custom styles untuk Kalkulator CC Mesin */
 :root {
-  --primary-yellow: #f59e0b;
-  --primary-orange: #f97316;
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --dark-bg: #0a1128;
-  --light-bg: #f0f4f8;
-  --text-light: #fff;
-  --text-dark: #111;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
 }
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(-45deg, #0a1128, #001f54, #0b3d91, #0a1128);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: var(--text-light);
+body.bg-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #0b1220 50%, #061226 100%);
+  color: #fff;
   min-height: 100vh;
   padding-top: 80px;
-  transition: background 0.5s ease, color 0.5s ease;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-body.light-mode {
-  background: linear-gradient(135deg, #f0f4f8, #dbeafe);
-  color: var(--text-dark);
+.navbar-brand .brand-text {
+  font-size: 1.05rem;
 }
 
-@keyframes gradientBG {
-  0% {background-position:0% 50%}
-  50% {background-position:100% 50%}
-  100% {background-position:0% 50%}
-}
-
-/* Navbar */
 .navbar {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--glass-border);
-  transition: background 0.5s ease;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-body.light-mode .navbar {
-  background: rgba(255, 255, 255, 0.8);
-  border-bottom-color: rgba(0,0,0,0.1);
-}
-
-.navbar-brand {
-  font-weight: 600;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: inherit;
-}
-
-.navbar-brand .fa-cogs {
-  color: var(--primary-yellow);
-}
-
-/* Card Glassmorphism */
 .card.glass {
   background: var(--glass-bg);
-  border-radius: 16px;
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
-  padding: 30px;
-  transition: background 0.5s ease, border-color 0.5s ease;
-}
-
-body.light-mode .card.glass {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-  color: var(--text-dark);
-}
-
-/* Form Inputs */
-input.form-control {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1.5px solid transparent;
-  border-radius: 10px;
-  color: var(--text-light);
-  padding: 15px 12px;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-}
-
-input.form-control:focus {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: var(--primary-yellow);
-  outline: none;
-  box-shadow: 0 0 8px var(--primary-yellow);
-  color: var(--text-light);
-}
-
-body.light-mode input.form-control {
-  background: #fff;
-  color: var(--text-dark);
-}
-
-body.light-mode input.form-control:focus {
-  box-shadow: 0 0 8px var(--primary-orange);
-  border-color: var(--primary-orange);
-}
-
-/* Buttons */
-.btn-warning {
-  background: linear-gradient(90deg, var(--primary-yellow), var(--primary-orange));
-  border: none;
-  font-weight: 600;
-  font-size: 1.15rem;
-  padding: 12px 0;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
-}
-
-.btn-warning:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.6);
-}
-
-.btn-outline-secondary {
-  border-radius: 12px;
-  padding: 12px 0;
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--text-light);
-  border: 1.8px solid rgba(255, 255, 255, 0.3);
-  background: transparent;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.btn-outline-secondary:hover {
-  background: var(--primary-yellow);
-  color: #111;
-  border-color: var(--primary-yellow);
-  transform: scale(1.05);
+  border-radius: 14px;
 }
 
 /* Result box */
 .result-box {
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 30px;
-  border-radius: 14px;
-  text-align: center;
-  font-weight: 700;
-  color: var(--text-light);
-  user-select: none;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-  transition: background 0.5s ease;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 22px;
+  color: #eee;
+}
+
+/* Buttons */
+.btn-warning {
+  background: linear-gradient(90deg, #f59e0b, #f97316);
+  border: none;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.18);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+input.form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input.form-control:focus {
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  box-shadow: 0 0 6px rgba(249, 115, 22, 0.6);
+  color: #fff;
+}
+
+/* Light mode */
+body.light-mode {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f1f5f9 100%);
+  color: #111827;
+}
+
+body.light-mode .card.glass {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode input.form-control {
+  background: #fff;
+  color: #111827;
+  border-color: #ccc;
+}
+
+body.light-mode input.form-control::placeholder {
+  color: #666;
 }
 
 body.light-mode .result-box {
-  color: var(--text-dark);
-  background: #fefefe;
-  border-color: #ddd;
-  box-shadow: 0 0 12px #ccc;
-}
-
-/* Display hasil angka */
-#hasil {
-  font-size: 4rem;
-  letter-spacing: 1.5px;
-  margin-top: 15px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.25);
-}
-
-/* Formula dan contoh */
-.result-box .small {
-  font-weight: 500;
-  opacity: 0.7;
-  margin-top: 12px;
-}
-
-.result-box hr {
-  margin: 25px 0;
-  border-color: rgba(255,255,255,0.15);
-}
-
-/* Footer */
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 10px 0;
-  background: rgba(0,0,0,0.25);
-  color: var(--text-light);
-  font-size: 0.9rem;
-  backdrop-filter: blur(6px);
-  transition: background 0.5s ease, color 0.5s ease;
-  user-select: none;
-}
-
-body.light-mode footer {
-  background: rgba(255,255,255,0.9);
-  color: var(--text-dark);
-}
-
-/* Animasi Loading Bar */
-#loading-bar {
-  height: 4px;
-  background: var(--primary-yellow);
-  width: 0%;
-  border-radius: 5px;
-  margin-top: 15px;
-  transition: width 0.4s ease;
-  display: none;
+  color: #333;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  #hasil {
-    font-size: 3rem;
+  .display-5 {
+    font-size: 2.2rem;
   }
 }
