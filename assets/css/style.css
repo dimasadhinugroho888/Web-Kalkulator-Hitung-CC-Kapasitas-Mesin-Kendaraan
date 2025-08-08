@@ -1,0 +1,52 @@
+/* Custom styles for Kalkulator CC Mesin */
+:root{
+  --glass-bg: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.12);
+}
+
+body.bg-gradient{
+  background: linear-gradient(135deg, #0f172a 0%, #0b1220 50%, #061226 100%);
+  color: #fff;
+  min-height: 100vh;
+  padding-top: 80px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.navbar-brand .brand-text{ font-size: 1.05rem; }
+.navbar { background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(255,255,255,0.03); }
+
+.card.glass{
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+}
+
+/* Result box */
+.result-box{
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 22px;
+}
+
+/* Buttons and small tweaks */
+.btn-warning{ background: linear-gradient(90deg,#f59e0b,#f97316); border: none; box-shadow: 0 6px 18px rgba(249,115,22,0.18); }
+.btn-outline-light{ border-color: rgba(255,255,255,0.12); color: #fff; }
+
+input.form-control{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+/* Light mode */
+body.light-mode{
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f1f5f9 100%);
+  color: #111827;
+}
+body.light-mode .card.glass{ background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.06); }
+body.light-mode input.form-control{ background: #fff; color: #111827; }
+
+/* Responsive tweaks */
+@media (max-width:768px){
+  .display-5{ font-size: 2.2rem; }
+}
