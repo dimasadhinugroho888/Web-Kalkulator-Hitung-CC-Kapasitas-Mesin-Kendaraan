@@ -1,99 +1,145 @@
-/* Custom styles untuk Kalkulator CC Mesin */
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(255, 255, 255, 0.12);
+  /* Warna dasar */
+  --color-bg-dark: #0a0f23;
+  --color-bg-light: #f0f4f8;
+  --color-text-dark: #f0f0f0;
+  --color-text-light: #222222;
+  --color-glass-dark: rgba(255, 255, 255, 0.08);
+  --color-glass-light: rgba(255, 255, 255, 0.95);
+  --color-input-bg-dark: rgba(255, 255, 255, 0.15);
+  --color-input-bg-light: #ffffff;
+  --color-input-text-dark: #fff;
+  --color-input-text-light: #222222;
+  --color-border-dark: rgba(255, 255, 255, 0.2);
+  --color-border-light: #ddd;
+  --color-text-small-dark: #bbb;
+  --color-text-small-light: #555;
+  --color-btn-gradient-start: #f59e0b;
+  --color-btn-gradient-end: #f97316;
 }
 
 body.bg-gradient {
-  background: linear-gradient(135deg, #0f172a 0%, #0b1220 50%, #061226 100%);
-  color: #fff;
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark);
   min-height: 100vh;
   padding-top: 80px;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.navbar-brand .brand-text {
-  font-size: 1.05rem;
+body.light-mode {
+  background: var(--color-bg-light);
+  color: var(--color-text-light);
 }
 
 .navbar {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
   backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--color-border-dark);
+  transition: border-color 0.4s ease;
+}
+
+body.light-mode .navbar {
+  border-bottom-color: var(--color-border-light);
 }
 
 .card.glass {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: var(--color-glass-dark);
+  border: 1px solid var(--color-border-dark);
   border-radius: 14px;
+  color: var(--color-text-dark);
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+body.light-mode .card.glass {
+  background: var(--color-glass-light);
+  border-color: var(--color-border-light);
+  color: var(--color-text-light);
 }
 
 /* Result box */
 .result-box {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 22px;
-  color: #eee;
+  color: var(--color-text-dark);
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+body.light-mode .result-box {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.01));
+  border-color: #ccc;
+  color: var(--color-text-light);
 }
 
 /* Buttons */
 .btn-warning {
-  background: linear-gradient(90deg, #f59e0b, #f97316);
+  background: linear-gradient(90deg, var(--color-btn-gradient-start), var(--color-btn-gradient-end));
   border: none;
-  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.18);
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-warning:hover,
+.btn-warning:focus {
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.45);
 }
 
 .btn-outline-light {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #fff;
+  border-color: var(--color-border-dark);
+  color: var(--color-text-dark);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode .btn-outline-light {
+  border-color: var(--color-border-light);
+  color: var(--color-text-light);
 }
 
 input.form-control {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--color-input-bg-dark);
+  border: 1px solid var(--color-border-dark);
+  color: var(--color-input-text-dark);
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
 input.form-control::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 input.form-control:focus {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   outline: none;
-  box-shadow: 0 0 6px rgba(249, 115, 22, 0.6);
-  color: #fff;
-}
-
-/* Light mode */
-body.light-mode {
-  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f1f5f9 100%);
-  color: #111827;
-}
-
-body.light-mode .card.glass {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+  color: var(--color-input-text-dark);
 }
 
 body.light-mode input.form-control {
-  background: #fff;
-  color: #111827;
-  border-color: #ccc;
+  background: var(--color-input-bg-light);
+  border-color: var(--color-border-light);
+  color: var(--color-input-text-light);
 }
 
 body.light-mode input.form-control::placeholder {
-  color: #666;
+  color: rgba(0, 0, 0, 0.4);
 }
 
-body.light-mode .result-box {
-  color: #333;
+/* Small texts */
+.text-muted {
+  color: var(--color-text-small-dark);
+  transition: color 0.4s ease;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .display-5 {
-    font-size: 2.2rem;
-  }
+body.light-mode .text-muted {
+  color: var(--color-text-small-light);
+}
+
+/* Transisi untuk semua teks dan latar */
+* {
+  transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Responsive tweaks */
+@media (max-width:768px){
+  .display-5{ font-size: 2.2rem; }
 }
