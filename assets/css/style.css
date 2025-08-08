@@ -1,26 +1,36 @@
 :root {
-  /* Warna dasar */
-  --color-bg-dark: #0a0f23;
-  --color-bg-light: #f0f4f8;
-  --color-text-dark: #f0f0f0;
-  --color-text-light: #222222;
-  --color-glass-dark: rgba(255, 255, 255, 0.08);
-  --color-glass-light: rgba(255, 255, 255, 0.95);
-  --color-input-bg-dark: rgba(255, 255, 255, 0.15);
-  --color-input-bg-light: #ffffff;
-  --color-input-text-dark: #fff;
-  --color-input-text-light: #222222;
-  --color-border-dark: rgba(255, 255, 255, 0.2);
-  --color-border-light: #ddd;
-  --color-text-small-dark: #bbb;
-  --color-text-small-light: #555;
-  --color-btn-gradient-start: #f59e0b;
-  --color-btn-gradient-end: #f97316;
+  /* Dark Mode Colors */
+  --bg-dark: #0a0f23;
+  --text-dark: #eee;
+  --glass-bg-dark: rgba(255, 255, 255, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.2);
+  --input-bg-dark: rgba(255, 255, 255, 0.15);
+  --input-text-dark: #fff;
+  --btn-bg-dark-start: #f59e0b;
+  --btn-bg-dark-end: #f97316;
+  --btn-text-dark: #fff;
+  --btn-outline-dark-border: rgba(255, 255, 255, 0.3);
+  --btn-outline-dark-text: #eee;
+  --small-text-dark: #bbb;
+
+  /* Light Mode Colors */
+  --bg-light: #ffffff;
+  --text-light: #222222;
+  --glass-bg-light: rgba(255, 255, 255, 0.95);
+  --border-light: #ddd;
+  --input-bg-light: #fff;
+  --input-text-light: #222;
+  --btn-bg-light-start: #f59e0b;
+  --btn-bg-light-end: #f97316;
+  --btn-text-light: #222;
+  --btn-outline-light-border: #888;
+  --btn-outline-light-text: #222;
+  --small-text-light: #555;
 }
 
 body.bg-gradient {
-  background: var(--color-bg-dark);
-  color: var(--color-text-dark);
+  background: var(--bg-dark);
+  color: var(--text-dark);
   min-height: 100vh;
   padding-top: 80px;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -28,33 +38,36 @@ body.bg-gradient {
 }
 
 body.light-mode {
-  background: var(--color-bg-light);
-  color: var(--color-text-light);
+  background: var(--bg-light);
+  color: var(--text-light);
 }
 
+/* Navbar */
 .navbar {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
   backdrop-filter: blur(4px);
-  border-bottom: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid var(--border-dark);
   transition: border-color 0.4s ease;
+  color: var(--text-dark);
 }
 
 body.light-mode .navbar {
-  border-bottom-color: var(--color-border-light);
+  border-bottom-color: var(--border-light);
+  color: var(--text-light);
 }
 
 .card.glass {
-  background: var(--color-glass-dark);
-  border: 1px solid var(--color-border-dark);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--border-dark);
   border-radius: 14px;
-  color: var(--color-text-dark);
+  color: var(--text-dark);
   transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
 body.light-mode .card.glass {
-  background: var(--color-glass-light);
-  border-color: var(--color-border-light);
-  color: var(--color-text-light);
+  background: var(--glass-bg-light);
+  border-color: var(--border-light);
+  color: var(--text-light);
 }
 
 /* Result box */
@@ -62,22 +75,29 @@ body.light-mode .card.glass {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 22px;
-  color: var(--color-text-dark);
+  color: var(--text-dark);
   transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
 body.light-mode .result-box {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.01));
   border-color: #ccc;
-  color: var(--color-text-light);
+  color: var(--text-light);
 }
 
 /* Buttons */
 .btn-warning {
-  background: linear-gradient(90deg, var(--color-btn-gradient-start), var(--color-btn-gradient-end));
+  background: linear-gradient(90deg, var(--btn-bg-dark-start), var(--btn-bg-dark-end));
   border: none;
+  color: var(--btn-text-dark);
   box-shadow: 0 6px 18px rgba(249, 115, 22, 0.25);
-  transition: box-shadow 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode .btn-warning {
+  background: linear-gradient(90deg, var(--btn-bg-light-start), var(--btn-bg-light-end));
+  color: var(--btn-text-light);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.3);
 }
 
 .btn-warning:hover,
@@ -86,20 +106,21 @@ body.light-mode .result-box {
 }
 
 .btn-outline-light {
-  border-color: var(--color-border-dark);
-  color: var(--color-text-dark);
+  border-color: var(--btn-outline-dark-border);
+  color: var(--btn-outline-dark-text);
   transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 body.light-mode .btn-outline-light {
-  border-color: var(--color-border-light);
-  color: var(--color-text-light);
+  border-color: var(--btn-outline-light-border);
+  color: var(--btn-outline-light-text);
 }
 
+/* Inputs */
 input.form-control {
-  background: var(--color-input-bg-dark);
-  border: 1px solid var(--color-border-dark);
-  color: var(--color-input-text-dark);
+  background: var(--input-bg-dark);
+  border: 1px solid var(--border-dark);
+  color: var(--input-text-dark);
   transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
@@ -111,13 +132,13 @@ input.form-control:focus {
   background: rgba(255, 255, 255, 0.25);
   outline: none;
   box-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
-  color: var(--color-input-text-dark);
+  color: var(--input-text-dark);
 }
 
 body.light-mode input.form-control {
-  background: var(--color-input-bg-light);
-  border-color: var(--color-border-light);
-  color: var(--color-input-text-light);
+  background: var(--input-bg-light);
+  border-color: var(--border-light);
+  color: var(--input-text-light);
 }
 
 body.light-mode input.form-control::placeholder {
@@ -126,15 +147,15 @@ body.light-mode input.form-control::placeholder {
 
 /* Small texts */
 .text-muted {
-  color: var(--color-text-small-dark);
+  color: var(--small-text-dark);
   transition: color 0.4s ease;
 }
 
 body.light-mode .text-muted {
-  color: var(--color-text-small-light);
+  color: var(--small-text-light);
 }
 
-/* Transisi untuk semua teks dan latar */
+/* General transition */
 * {
   transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
 }
